@@ -832,7 +832,7 @@ local checks = {
 	["binding"] = false,
 }
 
-game.Players.LocalPlayer.KeyDown:Connect(function(key)
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
 	if key == "4" then
 		if script.Parent then
 			if not checks.binding then
