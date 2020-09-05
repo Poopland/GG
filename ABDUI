@@ -833,7 +833,7 @@ local checks = {
 }
 
 game.Players.LocalPlayer.KeyDown:Connect(function(key)
-	if key = "4 then
+	if key == "4" then
 		if script.Parent then
 			if not checks.binding then
 				script.Parent.Enabled = not script.Parent.Enabled
