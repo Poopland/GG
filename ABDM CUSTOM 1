@@ -193,12 +193,9 @@ function shove()
 	trailevent:FireServer(standlarm.Trail, true)
 	wait(0.4)
 	coroutine.resume(coroutine.create(function()
-		for _ = 1, 10 do
+		for _ = 1, 25 do
 			wait()
 			hito3(leftarm, leftarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100, 0.75, 0, rot.CFrame.lookVector * 70, "rbxassetid://241837157", 0, Color3.new(1, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10)
-			for i=1,20 do
-			hito3(leftarm, leftarm.CFrame * CFrame.new(0, -1, 0) * CFrame.new(math.random(-0.25, 0.25), math.random(-0.25, 0.25), math.random(-0.25, 0.25)) ,3, 100, 0.75, 0, rot.CFrame.lookVector * 70, "rbxassetid://241837157", 0.075, Color3.new(1, 0, 0),"rbxassetid://260430079", math.random(9, 11) / 10, math.random(9, 11) / 10)
-			end
 		end
 	end))
 	wait(0.6)
