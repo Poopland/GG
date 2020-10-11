@@ -1,9 +1,3 @@
--- Stitch's UI Library
--- Version 1.0
--- Discord: https://discord.gg/Wxz8FZ2
-
-
-
 local library = {} -- library
 
 function library:CreateWindow(name, draggable) -- library function
