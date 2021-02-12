@@ -28,7 +28,7 @@ UserInputService.InputBegan:Connect(function(input)
     if tostring(_G.ToggleKey) == "NONE" or _G.ToggleKey == Enum.KeyCode.Unknown then
         return
     end
-    if input.KeyCode == Enum.KeyCode[_G.ToggleKey] then
+    if input.KeyCode == _G.ToggleKey then
         CoastifiedLibrary.Enabled = not CoastifiedLibrary.Enabled
     end
 end)
