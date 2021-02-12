@@ -1,4 +1,4 @@
-local UserInputService = game:GetService("UserInputService")
+        local UserInputService = game:GetService("UserInputService")
         local TweenService = game:GetService("TweenService")
         local RunService = game:GetService("RunService")
     
@@ -1498,7 +1498,6 @@ function Library:NewWindow(name)
                     ButtonLayout.Parent = ScrollingFrame
                     ButtonLayout.SortOrder = Enum.SortOrder.LayoutOrder
                     
-                    local Refreshing = false
 
                     for i, v in pairs(options) do
                         local DropdownOption = Instance.new("TextButton")
@@ -1672,211 +1671,17 @@ function Library:NewWindow(name)
 
                     function DropDownFunc:Refresh(argtable)
                         NumberOfOptions = 0
-                        rollingFrame.CanvasSize = UDim2.new(0, 0, 1, 0)
-
-                        for i,v in pairs(ScrollingFrame:GetChildren()) do
-                            v:Destroy()
-                        end
-
-                        for i, v in pairs(argtable) do
-                            local DropdownOption = Instance.new("TextButton")
-                
-                            NumberOfOptions = NumberOfOptions + 1
-
-                            local DropdownButtonName = RemoveSpaces(v)
-            
-                            DropdownOption.Name = (DropdownButtonName .. "Button")
-                            DropdownOption.Parent = ScrollingFrame
-                            DropdownOption.BackgroundColor3 = Color3.new(0.215686, 0.215686, 0.215686)
-                            DropdownOption.BackgroundTransparency = 1
-                            DropdownOption.BorderSizePixel = 0
-                            DropdownOption.Position = UDim2.new(0, 0, 0, 0)
-                            DropdownOption.Size = UDim2.new(0, 153, 0, 25)
-                            DropdownOption.AutoButtonColor = false
-                            DropdownOption.Font = Enum.Font.SourceSansBold
-                            DropdownOption.Text = v
-                            DropdownOption.TextColor3 = Color3.new(1, 1, 1)
-                            DropdownOption.TextSize = 14
-            
-                            if NumberOfOptions <= 4 then
-                                DropdownYSize = DropdownYSize + 25
-                                DropdownMain.Size = UDim2.new(0, 0, 0, DropdownYSize)
-                            elseif NumberOfOptions >= 4 then
-                                StartScrollingFrame = true
-                            end
-            
-                            if StartScrollingFrame then
-                                StartingCanvasSize = StartingCanvasSize + 0.25
-                                ScrollingFrame.CanvasSize = UDim2.new(0, 0, StartingCanvasSize, 0)
-                            end
-            
-                            DropdownOption.InputBegan:Connect(function(input)
-                                if input.UserInputType == Enum.UserInputType.MouseMovement then
-                                    TweenService:Create(DropdownOption, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0.5}):Play()
-                                end
-                            end)
-                                
-                            DropdownOption.InputEnded:Connect(function(input)
-                                if input.UserInputType == Enum.UserInputType.MouseMovement then
-                                    TweenService:Create(DropdownOption, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-                                end
-                            end)
-            
-                            DropdownOption.MouseButton1Down:Connect(function()
-                                SelectedOptionName = v
-                                action(v)
-            
-                                IsDropdownWindowOpen = false
-            
-                                DropdownToggle.Text = ">"
-                                TweenService:Create(DropdownToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-            
-                                TweenService:Create(DropdownTitle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextColor3 = Color3.new(1, 1, 1)}):Play()
-                                DropdownTitle.Text = SelectedOptionName
-            
-                                TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ScrollBarImageTransparency = 1}):Play()
-                                TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
-            
-                                TweenService:Create(DropdownMain, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
-                            end)
-                        end
-                    end
-
-                    return DropDownFunc
-                end
-     
-                function LibraryElements:CreateLabel(text)
-                    local LabelFunc = {}
-                    local Label = Instance.new("TextButton")
-                    local Text = Instance.new("TextLabel")
-        
-                    Label.Name = "Label"
-                    Label.Parent = Section1Holder
-                    Label.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-                    Label.BorderSizePixel = 0
-                    Label.Size = UDim2.new(0, 170, 0, 30)
-                    Label.Font = Enum.Font.SourceSans
-                    Label.Text = ""
-                    Label.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    Label.TextSize = 23.000
-                    Label.AutoButtonColor = false
-        
-                    Text.Name = "Text"
-                    Text.Parent = Label
-                    Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                    Text.BackgroundTransparency = 1.000
-                    Text.Position = UDim2.new(-0.0130718956, 0, 0, 0)
-                    Text.Size = UDim2.new(0, 170, 0, 30)
-                    Text.Font = Enum.Font.SourceSans
-                    Text.Text = text
-                    Text.TextColor3 = Color3.fromRGB(255, 255, 255)
-                    Text.TextSize = 17.000
-                    function LabelFunc:Refresh(textref)
-                        Text.Text = textref
-                    end
-                    return LabelFunc
-                end
-
-                return LibraryElements
-            end
-    
-            return Sections
-        end
-  return Librarys = false
-        
-                            IsDropdownWindowOpen = true
-        
-                            DropdownToggle.Text = "<"
-                            TweenService:Create(DropdownToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = -360}):Play()
-        
-                            TweenService:Create(DropdownTitle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextColor3 = Color3.new(0.698039, 0.698039, 0.698039)}):Play()
-                            DropdownTitle.Text = name
-        
-                            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ScrollBarImageTransparency = 0}):Play()
-                            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 153, 0, DropdownYSize)}):Play()
-        
-                            TweenService:Create(DropdownMain, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 153, 0, DropdownYSize)}):Play()
-                        end
-                    end)
-        
-                    SectionToggle.MouseButton1Down:Connect(function()
-                        if not IsSectionOpen then
-                            ExtendSectionSize(30)
-                            ExtendBodySize(30)
-                        elseif IsSectionOpen then
-                            IsDropdownWindowOpen = false
-        
-                            DropdownToggle.Text = ">"
-                            TweenService:Create(DropdownToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-        
-                            TweenService:Create(DropdownTitle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextColor3 = Color3.new(1, 1, 1)}):Play()
-                            DropdownTitle.Text = SelectedOptionName
-        
-                            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ScrollBarImageTransparency = 1}):Play()
-                            TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, 0)}):Play()
-        
-                            TweenService:Create(DropdownMain, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
-                            
-                            Body.ClipsDescendants = true
-                            Section1Holder.ClipsDescendants = true
-        
-                            UnExtendSectionSize(30)
-                            UnExtendBodySize(30)
-                        end
-
-
-                    end)
-        
-                    WindowToggle.MouseButton1Down:Connect(function()
-                        IsDropdownWindowOpen = false
-        
-                        DropdownToggle.Text = ">"
-                        TweenService:Create(DropdownToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-        
-                        TweenService:Create(DropdownTitle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextColor3 = Color3.new(1, 1, 1)}):Play()
-        
-                        DropdownTitle.Text = SelectedOptionName
-                        TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {ScrollBarImageTransparency = 1}):Play()
-                        TweenService:Create(ScrollingFrame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
-        
-                        TweenService:Create(DropdownMain, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
+                        ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+                        StartingCanvasSize = 1
+                        DropdownYSize = 0
                         
-                        Body.ClipsDescendants = true
-                        Section1Holder.ClipsDescendants = true
-        
-                        if not IsTabOpen then
-                            if IsSectionOpen then
-                                ExtendBodySize(30)
-                                TweenService:Create(SectionToggle, TweenInfo.new(0, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = -360}):Play()
-                                TweenService:Create(Section1Holder, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-                            elseif not IsSectionOpen then
-                                TweenService:Create(Section1Holder, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 0}):Play()
-                            end
-        
-                            
-                        elseif IsTabOpen then
-                            if IsSectionOpen then
-                                UnExtendBodySize(30)
-                                TweenService:Create(SectionToggle, TweenInfo.new(0, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Rotation = 0}):Play()
-                                TweenService:Create(Section1Holder, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
-                            elseif not IsSectionOpen then
-                                TweenService:Create(Section1Holder, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {BackgroundTransparency = 1}):Play()
+                        for a,b in pairs(ScrollingFrame:GetChildren()) do
+                            if b:IsA("TextButton") then
+                                b:Destroy()
                             end
                         end
-        
-                        TweenService:Create(SectionToggle, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextTransparency = 1}):Play()
-                
-                        SectionToggle.Visible = false
-                
-                        repeat wait() until SectionToggle.TextTransparency == 1
-                        SectionToggle.Visible = true
-                        TweenService:Create(SectionToggle, TweenInfo.new(0.4, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
-                    end)
 
-                    function DropDownFunc:Refresh(argtable)
-                        Refreshing = true
-                        Refreshing = false
-                        NumberOfOptions = 0
+                        
                         for i, v in pairs(argtable) do
                             local DropdownOption = Instance.new("TextButton")
                 
@@ -1938,12 +1743,6 @@ function Library:NewWindow(name)
             
                                 TweenService:Create(DropdownMain, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Size = UDim2.new(0, 0, 0, DropdownYSize)}):Play()
                             end)
-                            spawn(function()
-                                repeat 
-                                    wait()
-                                until Refreshing == true
-                                DropdownOption:Destroy()
-                            end)
                         end
                     end
 
@@ -1987,4 +1786,4 @@ function Library:NewWindow(name)
     
             return Sections
         end
-  return Library
+return Library
