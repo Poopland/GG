@@ -1185,6 +1185,8 @@ function Library:NewWindow(name)
                 end
     
                 function LibraryElements:CreateButton(name, action)
+
+                    local MiscFunc = {}
                     local ButtonHolder = Instance.new("Frame")
                     local Button = Instance.new("TextButton")
                     local ButtonRound = Instance.new("ImageLabel")
@@ -1301,6 +1303,12 @@ function Library:NewWindow(name)
                         SectionToggle.Visible = true
                         TweenService:Create(SectionToggle, TweenInfo.new(0.9, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {TextTransparency = 0}):Play()
                     end)
+
+                    local MiscFunc = {}
+                    function MiscFunc:Refresh(txt)
+                        Button.Text = txt
+                    end
+                    return MiscFunc
                 end
     
                 function LibraryElements:CreateTextbox(name, action)
