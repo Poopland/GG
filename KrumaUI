@@ -25,7 +25,7 @@
         Container.Size = UDim2.new(0, 100, 0, 100)
     
         UserInputService.InputBegan:Connect(function(input)
-            if input.KeyCode == Enum.KeyCode[_G.ToggleKey] then
+            if input.KeyCode == _G.ToggleKey then
                 CoastifiedLibrary.Enabled = not CoastifiedLibrary.Enabled
             end
         end)
