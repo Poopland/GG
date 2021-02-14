@@ -85,7 +85,7 @@ local function MakeDraggable(topbarobject, object)
     )
 end
 
-function lib:Window(text, preset,gra, closebind)
+function lib:Window(text,UISize , preset, gra, closebind)
     CloseBind = closebind or Enum.KeyCode.RightControl
     PresetColor = preset or Color3.fromRGB(44, 120, 224)
     fs = false
@@ -135,7 +135,7 @@ function lib:Window(text, preset,gra, closebind)
     DragFrame.Parent = Main
     DragFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     DragFrame.BackgroundTransparency = 1.000
-    DragFrame.Size = UDim2.new(0, 560, 0, 41)
+    DragFrame.Size = UISize or UDim2.new(0, 560, 0, 41)
 
     GradientBarUI.Color = gra or     ColorSequence.new {
         ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255 ,128 ,0)),
@@ -146,8 +146,8 @@ function lib:Window(text, preset,gra, closebind)
     }
     GradientBarUI.Name = "GradientBarUI"
     GradientBarUI.Parent = Main
-
-    Main:TweenSize(UDim2.new(0, 560, 0, 319), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+    local DefualtUISize = UISize or UDim2.new(0, 560, 0, 319)
+    Main:TweenSize(DefualtUISize, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
     MakeDraggable(DragFrame, Main)
 
@@ -162,7 +162,7 @@ function lib:Window(text, preset,gra, closebind)
                     knixhub.Enabled = false
                 else
                     Main:TweenSize(
-                        UDim2.new(0, 560, 0, 319),
+                        DefualtUISize,
                         Enum.EasingDirection.Out,
                         Enum.EasingStyle.Quart,
                         .6,
@@ -200,7 +200,7 @@ function lib:Window(text, preset,gra, closebind)
         NotificationHold.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         NotificationHold.BackgroundTransparency = 1.000
         NotificationHold.BorderSizePixel = 0
-        NotificationHold.Size = UDim2.new(0, 560, 0, 319)
+        NotificationHold.Size = DefualtUISize
         NotificationHold.AutoButtonColor = false
         NotificationHold.Font = Enum.Font.SourceSans
         NotificationHold.Text = ""
