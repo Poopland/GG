@@ -666,7 +666,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         )
                     end
                     toggled = not toggled
-                    pcall(callback, toggled)
+                    callback(toggled)
                 end
             )
 
@@ -812,7 +812,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                 SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
                 local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
                 SliderValue.Text = tostring(value)
-                pcall(callback, value)
+                callback(value)
             end
             SlideCircle.InputBegan:Connect(
                 function(input)
@@ -991,7 +991,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                     function()
                         droptog = not droptog
                         DropdownTitle.Text = text .. " - " .. v
-                        pcall(callback, v)
+                        callback(v)
                         Dropdown:TweenSize(
                             UDim2.new(0, 363, 0, 42),
                             Enum.EasingDirection.Out,
@@ -1070,7 +1070,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         function()
                             droptog = not droptog
                             DropdownTitle.Text = text .. " - " .. v
-                            pcall(callback, v)
+                            callback(v)
                             Dropdown:TweenSize(
                                 UDim2.new(0, 363, 0, 42),
                                 Enum.EasingDirection.Out,
@@ -1364,7 +1364,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                 BoxColor.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
                 Color.BackgroundColor3 = Color3.fromHSV(ColorH, 1, 1)
 
-                pcall(callback, BoxColor.BackgroundColor3)
+                callback(BoxColor.BackgroundColor3)
             end
 
             ColorH =
@@ -1381,7 +1381,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
 
             BoxColor.BackgroundColor3 = preset
             Color.BackgroundColor3 = preset
-            pcall(callback, BoxColor.BackgroundColor3)
+            callback(BoxColor.BackgroundColor3)
 
             Color.InputBegan:Connect(
                 function(input)
@@ -1516,7 +1516,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                             ColorSelection.Position = UDim2.new(1, 0, 0, 0)
                             HueSelection.Position = UDim2.new(0.48, 0, 0, lib.HueSelectionPosition)
 
-                            pcall(callback, BoxColor.BackgroundColor3)
+                            callback(BoxColor.BackgroundColor3)
                             wait()
                         end
                     elseif not RainbowColorPicker then
@@ -1554,7 +1554,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         ColorSelection.Position = OldColorSelectionPosition
                         HueSelection.Position = OldHueSelectionPosition
 
-                        pcall(callback, BoxColor.BackgroundColor3)
+                        callback(BoxColor.BackgroundColor3)
                     end
                 end
             )
@@ -1665,7 +1665,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                 function(ep)
                     if ep then
                         if #TextBox.Text > 0 then
-                            pcall(callback, TextBox.Text)
+                            callback(TextBox.Text)
                             if disapper then
                                 TextBox.Text = ""
                             end
@@ -1744,7 +1744,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                 function(current, pressed)
                     if not pressed then
                         if current.KeyCode.Name == Key and binding == false then
-                            pcall(callback)
+                            callback()
                         end
                     end
                 end
