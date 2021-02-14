@@ -155,7 +155,7 @@ function lib:Window(text,UISize , preset, gra, closebind)
     local togglecd = false
     UserInputService.InputBegan:Connect(
         function(io, p)
-            if io.KeyCode == CloseBind and togglecd = false then
+            if io.KeyCode == CloseBind and togglecd == false then
                 if uitoggled == false then
                     togglecd = true
                     Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
@@ -166,7 +166,7 @@ function lib:Window(text,UISize , preset, gra, closebind)
                 else
                     togglecd = true
                     ui.Enabled = true
-                    Main:TweenSize(DefualtUISize,Enum.EasingDirection.Out,Enum.EasingStyle.Quart, .6,true)
+                    Main:TweenSize(DefualtUISize,Enum.EasingDirection.Out,Enum.EasingStyle.Quart, .6, true)
                     wait(.5)
                     togglecd = false
                     uitoggled = false
