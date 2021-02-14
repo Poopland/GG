@@ -1755,5 +1755,5 @@ function lib:Window(text, preset,thesize,gra, closebind)
     end
     return tabhold
 end
-return libor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
-end)
+end
+return lib
