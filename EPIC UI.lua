@@ -85,7 +85,7 @@ local function MakeDraggable(topbarobject, object)
     )
 end
 
-function lib:Window(text, preset,gra, closebind)
+function lib:Window(text, preset,thesize,gra, closebind)
     CloseBind = closebind or Enum.KeyCode.RightControl
     PresetColor = preset or Color3.fromRGB(44, 120, 224)
     fs = false
@@ -147,7 +147,8 @@ function lib:Window(text, preset,gra, closebind)
     GradientBarUI.Name = "GradientBarUI"
     GradientBarUI.Parent = Main
 
-    Main:TweenSize(UDim2.new(0, 560, 0, 319), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+    local defaultsize = thesize or UDim2.new(0, 560, 0, 319)
+    Main:TweenSize(defaultsize, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
     MakeDraggable(DragFrame, Main)
 
@@ -159,16 +160,16 @@ function lib:Window(text, preset,gra, closebind)
                     Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
                     uitoggled = true
                     wait(.5)
-                    knixhub.Enabled = false
+                    ui.Enabled = false
                 else
+                    ui.Enabled = true
                     Main:TweenSize(
-                        UDim2.new(0, 560, 0, 319),
+                        defaultsize,
                         Enum.EasingDirection.Out,
                         Enum.EasingStyle.Quart,
                         .6,
                         true
                     )
-                    knixhub.Enabled = true
                     uitoggled = false
                 end
             end
@@ -509,7 +510,7 @@ function lib:Window(text, preset,gra, closebind)
             end
             return BtnFunc
         end
-        function tabcontent:Toggle(text,default, callback)
+        function tabcontent:Toggle(text, callback)
             local toggled = false
 
             local Toggle = Instance.new("TextButton")
@@ -1686,7 +1687,7 @@ function lib:Window(text, preset,gra, closebind)
 
             Bind.Name = "Bind"
             Bind.Parent = Tab
-            Bind.BackgroundColor3 = defaultcolor or Color3.fromRGB(34,34,34)
+            Bind.BackgroundColor3 = defaultcolor
             Bind.Size = UDim2.new(0, 363, 0, 42)
             Bind.AutoButtonColor = false
             Bind.Font = Enum.Font.SourceSans
@@ -1754,4 +1755,5 @@ function lib:Window(text, preset,gra, closebind)
     end
     return tabhold
 end
-return lib
+return libor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
+end)
