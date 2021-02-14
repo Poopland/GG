@@ -665,7 +665,7 @@ function lib:Window(text,UISize , preset, gra, closebind)
                         )
                     end
                     toggled = not toggled
-                    pcall(callback, toggled)
+                    callback(toggled)
                 end
             )
 
