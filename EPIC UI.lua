@@ -509,7 +509,7 @@ function lib:Window(text,UISize , preset, gra, closebind)
             end
             return BtnFunc
         end
-        function tabcontent:Toggle(text,default, callback)
+        function tabcontent:Toggle(text, callback)
             local toggled = false
 
             local Toggle = Instance.new("TextButton")
