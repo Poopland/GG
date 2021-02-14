@@ -481,7 +481,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                     TweenService:Create(
                         Button,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                        {BackgroundColor3 = Color3.new(0.5,0.5,0.5)}
                     ):Play()
                 end
             )
@@ -491,7 +491,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                     TweenService:Create(
                         Button,
                         TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                        {BackgroundColor3 = defaultcolor or Color3.fromRGB(34,34,34)}
                     ):Play()
                 end
             )
@@ -635,7 +635,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         TweenService:Create(
                             Toggle,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = defaultcolor + Color3.fromRGB(14,14,14)}
+                            {BackgroundColor3 = defaultcolor}
                         ):Play()
                         TweenService:Create(
                             FrameToggle1,
@@ -954,7 +954,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
 
                 Item.Name = "Item"
                 Item.Parent = DropItemHolder
-                Item.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                Item.BackgroundColor3 = defaultcolor or Color3.fromRGB(34, 34, 34)
                 Item.ClipsDescendants = true
                 Item.Size = UDim2.new(0, 335, 0, 25)
                 Item.AutoButtonColor = false
@@ -972,7 +972,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         TweenService:Create(
                             Item,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                            {BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)}
                         ):Play()
                     end
                 )
@@ -982,7 +982,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         TweenService:Create(
                             Item,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                            {BackgroundColor3 = defaultcolor or Color3.fromRGB(34, 34, 34)}
                         ):Play()
                     end
                 )
@@ -1033,7 +1033,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
     
                     Item.Name = "Item"
                     Item.Parent = DropItemHolder
-                    Item.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+                    Item.BackgroundColor3 = defaultcolor or Color3.fromRGB(34, 34, 34)
                     Item.ClipsDescendants = true
                     Item.Size = UDim2.new(0, 335, 0, 25)
                     Item.AutoButtonColor = false
@@ -1051,7 +1051,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                             TweenService:Create(
                                 Item,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                                {BackgroundColor3 = Color3.new(0.5, 0.5, 0.5)}
                             ):Play()
                         end
                     )
@@ -1061,7 +1061,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                             TweenService:Create(
                                 Item,
                                 TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                                {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                                {BackgroundColor3 = defaultcolor or Color3.fromRGB(34, 34, 34)}
                             ):Play()
                         end
                     )
@@ -1621,7 +1621,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
 
             Textbox.Name = "Textbox"
             Textbox.Parent = Tab
-            Textbox.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Textbox.BackgroundColor3 = defaultcolor or Color3.fromRGB(34, 34, 34)
             Textbox.ClipsDescendants = true
             Textbox.Position = UDim2.new(-0.541071415, 0, -0.532915354, 0)
             Textbox.Size = UDim2.new(0, 363, 0, 42)
@@ -1754,6 +1754,5 @@ function lib:Window(text, preset,thesize,gra, closebind)
         return tabcontent
     end
     return tabhold
-end
 end
 return lib
