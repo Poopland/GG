@@ -991,7 +991,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                     function()
                         droptog = not droptog
                         DropdownTitle.Text = text .. " - " .. v
-                        callback(v)
+                        callback(Item.Text)
                         Dropdown:TweenSize(
                             UDim2.new(0, 363, 0, 42),
                             Enum.EasingDirection.Out,
@@ -1070,7 +1070,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
                         function()
                             droptog = not droptog
                             DropdownTitle.Text = text .. " - " .. v
-                            callback(v)
+                            callback(Item.Text)
                             Dropdown:TweenSize(
                                 UDim2.new(0, 363, 0, 42),
                                 Enum.EasingDirection.Out,
