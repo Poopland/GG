@@ -1686,7 +1686,7 @@ function lib:Window(text, preset,gra, closebind)
 
             Bind.Name = "Bind"
             Bind.Parent = Tab
-            Bind.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Bind.BackgroundColor3 = defaultcolor or Color3.fromRGB(34,34,34)
             Bind.Size = UDim2.new(0, 363, 0, 42)
             Bind.AutoButtonColor = false
             Bind.Font = Enum.Font.SourceSans
@@ -1755,56 +1755,3 @@ function lib:Window(text, preset,gra, closebind)
     return tabhold
 end
 return lib
-
-local Gradient = ColorSequence.new {
-    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255 ,128 ,0)),
-    ColorSequenceKeypoint.new(0.50, Color3.fromRGB(230 ,76 ,0)),
-    ColorSequenceKeypoint.new(0.70, Color3.fromRGB(204, 34 ,0)),
-    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(197, 0 ,0)),
-
-}
-
-local a = lib
-local win = lib:Window("BAWEAW",Color3.fromRGB(44, 120, 224),Gradient, Enum.KeyCode.RightControl)
-
-local tab = win:Tab("Tab 1")
-
-tab:Button("Button", function()
-lib:Notification("Notification", "Hello!", "Hi!")
-end)
-
-tab:Toggle("Toggle",false, function(t)
-print(t)
-end)
-
-tab:Slider("Slider",0,100,30, function(t)
-print(t)
-end)
-
-local aa = tab:Dropdown("Dropdown",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(t)
-print(t)
-end)
-
-tab:Button("Button", function()
-    aa:Refresh({"ARWAR","adfsd"})
-end)
-
-tab:Colorpicker("Colorpicker",Color3.fromRGB(255,0,0), function(t)
-print(t)
-end)
-
-tab:Textbox("Textbox",true, function(t)
-print(t)
-end)
-
-tab:Bind("Bind",Enum.KeyCode.RightShift, function(a)
-    win:ChangeCloseBind(a)
-end)
-
-tab:Label("Label")
-
-local changeclr = win:Tab("Change UI Color")
-
-changeclr:Colorpicker("Change UI Color",Color3.fromRGB(44, 120, 224), function(t)
-lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
-end)
