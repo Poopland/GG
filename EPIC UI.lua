@@ -85,7 +85,7 @@ local function MakeDraggable(topbarobject, object)
     )
 end
 
-function lib:Window(text, preset,thesize,gra, closebind)
+function lib:Window(text,textcolor, preset,thesize,gra, closebind)
     CloseBind = closebind or Enum.KeyCode.RightControl
     PresetColor = preset or Color3.fromRGB(44, 120, 224)
     fs = false
@@ -127,7 +127,7 @@ function lib:Window(text, preset,thesize,gra, closebind)
     Title.Size = UDim2.new(0, 200, 0, 23)
     Title.Font = Enum.Font.GothamSemibold
     Title.Text = text
-    Title.TextColor3 = Color3.fromRGB(68, 68, 68)
+    Title.TextColor3 = textcolor or Color3.fromRGB(68, 68, 68)
     Title.TextSize = 12.000
     Title.TextXAlignment = Enum.TextXAlignment.Left
 
