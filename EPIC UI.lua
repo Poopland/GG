@@ -391,7 +391,7 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         coroutine.wrap(
             function()
                 while wait() do
-                    if amounttab/45 > 7 then
+                    if amounttab > 7 then
                         Tab.Size = UDim2.new(0, 373, 0, 45*amounttab-65)
                     else
                         Tab.Size = UDim2.new(0, 373, 0, 254)
