@@ -388,11 +388,13 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         Tab.BorderSizePixel = 0
         Tab.Position = UDim2.new(0.31400001, 0, 0.147, 0)
         
-        if amounttab/45 > 7 then
-            Tab.Size = UDim2.new(0, 373, 0, 254+amounttab)
-        else
-            Tab.Size = UDim2.new(0, 373, 0, 254)
-        end
+        spawn(function()
+            if amounttab/45 > 7 then
+                Tab.Size = UDim2.new(0, 373, 0, 254+amounttab)
+            else
+                Tab.Size = UDim2.new(0, 373, 0, amounttab)
+            end
+        end)
         
         Tab.CanvasSize = UDim2.new(0, 0, 0, 0)
         Tab.ScrollBarThickness = 3
