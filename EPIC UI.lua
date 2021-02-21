@@ -329,14 +329,14 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         )
     end
     local tabhold = {}
-    local amounttab = 45
+    local amounttab = 0
     function tabhold:Tab(text,defaultcolor)
         local TabBtn = Instance.new("TextButton")
         local TabTitle = Instance.new("TextLabel")
         local TabBtnIndicator = Instance.new("Frame")
         local TabBtnIndicatorCorner = Instance.new("UICorner")
         
-        amounttab = amounttab + 45
+        amounttab = amounttab + 1
         
         TabBtn.Name = "TabBtn"
         TabBtn.Parent = TabHold
@@ -392,7 +392,7 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
             function()
                 while wait() do
                     if amounttab/45 > 7 then
-                        Tab.Size = UDim2.new(0, 373, 0, amounttab-65)
+                        Tab.Size = UDim2.new(0, 373, 0, 45*amounttab-65)
                     else
                         Tab.Size = UDim2.new(0, 373, 0, 254)
                     end
