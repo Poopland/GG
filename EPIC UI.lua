@@ -147,7 +147,7 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
     GradientBarUI.Name = "GradientBarUI"
     GradientBarUI.Parent = Main
 
-    local defaultsize = thesize or UDim2.new(0, 560, 0, 319)
+    local defaultsize = thesize or UDim2.new(0, 560, 0, 315)
     Main:TweenSize(defaultsize, Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
     MakeDraggable(DragFrame, Main)
@@ -201,7 +201,7 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         NotificationHold.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         NotificationHold.BackgroundTransparency = 1.000
         NotificationHold.BorderSizePixel = 0
-        NotificationHold.Size = UDim2.new(0, 560, 0, 319)
+        NotificationHold.Size = thesize or UDim2.new(0, 560, 0, 315)
         NotificationHold.AutoButtonColor = false
         NotificationHold.Font = Enum.Font.SourceSans
         NotificationHold.Text = ""
@@ -329,12 +329,15 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         )
     end
     local tabhold = {}
+    local amounttab = 45
     function tabhold:Tab(text,defaultcolor)
         local TabBtn = Instance.new("TextButton")
         local TabTitle = Instance.new("TextLabel")
         local TabBtnIndicator = Instance.new("Frame")
         local TabBtnIndicatorCorner = Instance.new("UICorner")
-
+        
+        amounttab = amounttab + 45
+        
         TabBtn.Name = "TabBtn"
         TabBtn.Parent = TabHold
         TabBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -384,7 +387,11 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         Tab.BackgroundTransparency = 1.000
         Tab.BorderSizePixel = 0
         Tab.Position = UDim2.new(0.31400001, 0, 0.147, 0)
-        Tab.Size = UDim2.new(0, 373, 0, 254)
+        
+        if amounttab/45 > 7 then
+            Tab.Size = UDim2.new(0, 373, 0, 254+amounttab)
+        end
+        
         Tab.CanvasSize = UDim2.new(0, 0, 0, 0)
         Tab.ScrollBarThickness = 3
         Tab.Visible = false
