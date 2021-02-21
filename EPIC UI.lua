@@ -389,10 +389,12 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         Tab.Position = UDim2.new(0.31400001, 0, 0.147, 0)
         
         spawn(function()
-            if amounttab/45 > 7 then
-                Tab.Size = UDim2.new(0, 373, 0, 254+amounttab)
-            else
-                Tab.Size = UDim2.new(0, 373, 0, amounttab)
+            while wait(2) do
+                if amounttab/45 > 7 then
+                    Tab.Size = UDim2.new(0, 373, 0, amounttab)
+                else
+                    Tab.Size = UDim2.new(0, 373, 0, 254)
+                end
             end
         end)
         
