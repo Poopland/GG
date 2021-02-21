@@ -392,7 +392,7 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
             function()
                 while wait() do
                     if amounttab > 7 then
-                        Tab.Size = UDim2.new(0, 373, 0, 45*amounttab-65)
+                        Tab.Size = UDim2.new(0, 373, 0, 37.1428571*amount)
                     else
                         Tab.Size = UDim2.new(0, 373, 0, 254)
                     end
