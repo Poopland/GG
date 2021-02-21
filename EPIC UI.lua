@@ -390,6 +390,8 @@ function lib:Window(text,textcolor, preset,thesize,gra, closebind)
         
         if amounttab/45 > 7 then
             Tab.Size = UDim2.new(0, 373, 0, 254+amounttab)
+        else
+            Tab.Size = UDim2.new(0, 373, 0, 254)
         end
         
         Tab.CanvasSize = UDim2.new(0, 0, 0, 0)
