@@ -124,6 +124,11 @@ end
 function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 	CloseBind = toclose or Enum.KeyCode.RightControl
 	PresetColor = mainclr or Color3.fromRGB(66, 134, 255)
+	
+	if themeclr == nil then
+        themeclr = {X = 50,Y = 53,Z = 59}	    
+	end
+   
 	local fs = false
 	local MainFrame = Instance.new("Frame")
 	local MainCorner = Instance.new("UICorner")
@@ -132,7 +137,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 	local GlowTabHolder = Instance.new("ImageLabel")
 	local Title = Instance.new("TextLabel")
 	local BottomText = Instance.new("TextLabel")
-	local TabHold = Instance.new("Frame")
+	local TabHold = Instance.new("ScrollingFrame")
 	local TabLayout = Instance.new("UIListLayout")
 	local Drag = Instance.new("Frame")
 	local ContainerFolder = Instance.new("Folder")
@@ -210,12 +215,21 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 	TabHold.BackgroundTransparency = 1.000
 	TabHold.Position = UDim2.new(0, 0, 0.167355374, 0)
 	TabHold.Size = UDim2.new(0, 205, 0, 403)
-
+	TabHold.CanvasSize = UDim2.new(0, 0, 0, 0)
+	TabHold.ScrollBarThickness = 0
+	TabHold.Visible = true
+	TabHold.Active = true
+	TabHold.ScrollBarImageColor3 = Color3.fromRGB(71, 76, 84)
+	
 	TabLayout.Name = "TabLayout"
 	TabLayout.Parent = TabHold
 	TabLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	TabLayout.Padding = UDim.new(0, 3)
 
+    local function UpdateSize()
+        TabHold.CanvasSize = UDim2.new(0,0,0,TabLayout.AbsoluteContentSize.Y) --Change that UDim into a UDim2
+    end 
+    
 	Drag.Name = "Drag"
 	Drag.Parent = MainFrame
 	Drag.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -507,7 +521,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Tab.BackgroundTransparency = 0
 			Container.Visible = true
 		end
-		
+		UpdateSize()
 		Tab.MouseButton1Click:Connect(function()
 			for i, v in next, ContainerFolder:GetChildren() do
 				if v.Name == "Container" then
