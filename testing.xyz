@@ -806,6 +806,11 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 				end
 				BtnDescToggled = not BtnDescToggled
 			end)
+			local anyfunc = {}
+			function anyfunc:Refresh(title,desc)
+				Title.Text = title
+				Description.Text = desc
+			end
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		function ContainerContent:Toggle(text, desc,default, callback)
@@ -2445,6 +2450,12 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			
+			local anyfunc = {}
+			function anyfunc:Refresh(title,color)
+				Title.Text = title
+				Label.BackgroundColor3 = color or Label.BackgroundColor3
+			end
 		end
 		function ContainerContent:Textbox(text,desc,disapper,callback)
 			if desc == "" then
