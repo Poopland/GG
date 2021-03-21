@@ -812,6 +812,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 				Description.Text = desc
 			end
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+			return anyfunc
 		end
 		function ContainerContent:Toggle(text, desc,default, callback)
 			local ToggleDescToggled = false
@@ -2456,6 +2457,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 				Title.Text = title
 				Label.BackgroundColor3 = color or Label.BackgroundColor3
 			end
+			return anyfunc
 		end
 		function ContainerContent:Textbox(text,desc,disapper,callback)
 			if desc == "" then
