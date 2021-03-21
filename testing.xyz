@@ -2450,6 +2450,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
+			Title.RichText = true
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 			
