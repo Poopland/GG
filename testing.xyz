@@ -381,6 +381,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 		NotificationDesc.TextSize = 15.000
 		NotificationDesc.TextWrapped = true
 		NotificationDesc.TextTransparency = 1
+		NotificationDesc.RichText = true
 		
 		CloseBtn.MouseEnter:Connect(function()
 		    if localuivalue ~= _G.run_ui then return end
@@ -670,7 +671,8 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Description.TextTransparency = 1
 			Description.TextWrapped = true
 			Description.TextXAlignment = Enum.TextXAlignment.Left
-
+			Description.RichText = true
+			
 			ArrowBtn.Name = "ArrowBtn"
 			ArrowBtn.Parent = Button
 			ArrowBtn.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
@@ -917,6 +919,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Description.Size = UDim2.new(0, 432, 0, 31)
 			Description.Font = Enum.Font.Gotham
 			Description.Text = desc
+			Description.RichText = true
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
 			Description.TextTransparency = 1
@@ -1178,6 +1181,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Description.Size = UDim2.new(0, 432, 0, 31)
 			Description.Font = Enum.Font.Gotham
 			Description.Text = desc
+			Description.RichText = true
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
 			Description.TextTransparency = 0.300
@@ -2542,6 +2546,7 @@ function Flux:Window(text, bottom,mainclr,themeclr,toclose)
 			Description.Size = UDim2.new(0, 432, 0, 31)
 			Description.Font = Enum.Font.Gotham
 			Description.Text = desc
+			Description.RichText = true
 			Description.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Description.TextSize = 15.000
 			Description.TextTransparency = 1
